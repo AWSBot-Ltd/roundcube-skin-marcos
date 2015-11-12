@@ -1,54 +1,93 @@
 <roundcube:object name="doctype" value="html5" />
-<html>
+<!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
+
 <head>
 <title><roundcube:object name="pagetitle" /></title>
-<meta name="Robots" content="noindex,nofollow" />
+<meta name="Robots" content="noindex,nofollow" charset="utf-8" />
 <roundcube:include file="/includes/links.html" />
 </head>
-<body>
+    <body>
+        <!-- Login Content -->
+        <div class="bg-white pulldown">
+            <div class="content content-boxed overflow-hidden">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                        <div class="push-30-t push-50 animated fadeIn">
+                            <!-- Login Title -->
+                            <div class="text-center">
+                                <i class="fa fa-2x fa-circle-o-notch text-primary"></i>
+                                <p class="text-muted push-15-t">A perfect match for your project</p>
+                            </div>
+                            <!-- END Login Title -->
 
-<div id="login-form">
-<div class="box-inner">
-<roundcube:object name="logo" src="/images/roundcube_logo.png" id="logo" border="0" />
+                            <!-- Login Form -->
+                            <!-- jQuery Validation (.js-validation-login class is initialized in js/pages/base_pages_login.js) -->
+                            <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                            <form class="js-validation-login form-horizontal push-30-t" action="index.html" method="post">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material form-material-primary floating">
+                                            <input class="form-control" type="text" id="login-username" name="login-username">
+                                            <label for="login-username">Username</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material form-material-primary floating">
+                                            <input class="form-control" type="password" id="login-password" name="login-password">
+                                            <label for="login-password">Password</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label class="css-input switch switch-sm switch-primary">
+                                            <input type="checkbox" id="login-remember-me" name="login-remember-me"><span></span> Remember Me?
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="font-s13 text-right push-5-t">
+                                            <a href="base_pages_reminder_v2.html">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group push-30-t">
+                                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                                        <button class="btn btn-sm btn-block btn-primary" type="submit">Log in</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Login Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Login Content -->
 
-<form name="form" action="./" method="post">
-<roundcube:object name="loginform" form="form" size="40" />
+        <!-- Login Footer -->
+        <div class="pulldown push-30-t text-center animated fadeInUp">
+            <small class="text-muted"><span class="js-year-copy"></span> &copy; OneUI 1.2</small>
+        </div>
+        <!-- END Login Footer -->
 
-<p class="formbuttons"><input type="submit" class="button mainaction" value="<roundcube:label name='login' />" /></p>
+        <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+        <script src="/assets/js/core/jquery.min.js"></script>
+        <script src="/assets/js/core/bootstrap.min.js"></script>
+        <script src="/assets/js/core/jquery.slimscroll.min.js"></script>
+        <script src="/assets/js/core/jquery.scrollLock.min.js"></script>
+        <script src="/assets/js/core/jquery.appear.min.js"></script>
+        <script src="/assets/js/core/jquery.countTo.min.js"></script>
+        <script src="/assets/js/core/jquery.placeholder.min.js"></script>
+        <script src="/assets/js/core/js.cookie.min.js"></script>
+        <script src="/assets/js/app.js"></script>
 
-</form>
-</div>
+        <!-- Page JS Plugins -->
+        <script src="/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
 
-<div class="box-bottom">
-	<roundcube:object name="message" id="message" />
-	<noscript>
-		<p class="noscriptwarning"><roundcube:label name="noscriptwarning" /></p>
-	</noscript>
-</div>
-
-<div id="bottomline">
-	<roundcube:var name="config:product_name"> <roundcube:object name="version" condition="config:display_version" />
-	<roundcube:if condition="config:support_url" />
-		&nbsp;&#9679;&nbsp; <a href="<roundcube:var name='config:support_url' />" target="_blank" class="support-link"><roundcube:label name="support" /></a>
-	<roundcube:endif />
-	<roundcube:container name="loginfooter" id="bottomline" />
-</div>
-</div>
-
-<roundcube:include file="/includes/footer.html" />
-
-<roundcube:object name="preloader" images="
-  /images/ajaxloader.gif
-  /images/buttons.png
-  /images/addcontact.png
-  /images/filetypes.png
-  /images/listicons.png
-  /images/messages.png
-  /images/quota.png
-  /images/selector.png
-  /images/splitter.png
-  /images/watermark.jpg
-" />
-
-</body>
+        <!-- Page JS Code -->
+        <script src="/assets/js/pages/base_pages_login.js"></script>
+    </body>
 </html>
